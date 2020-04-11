@@ -1,0 +1,9 @@
+# Stage 1, install base for the REACT web-build application
+FROM node:12 as web-build-base
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json /app/
+RUN npm install --silent
+COPY . ./
+EXPOSE 3000
+CMD ["npm", "run", "start"]
