@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --roots tests/ src/ --testMatch **/*.test.js --coverage --watchAll",
-    "citest": "CI=true react-scripts test --roots tests/ src/ --testMatch **/*.test.js"
+    "citest": "CI=true react-scripts test --roots tests/ src/ --testMatch **/*.test.js",
+    "server": "node ./proxy-server/server.js"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -27,6 +28,7 @@
       "text"
     ]
   },
+  "proxy": "http://proxy-server:3030/",
   "eslintConfig": {
     "extends": "react-app"
   },

@@ -9,18 +9,18 @@ function App() {
 	const [result, setResult] = useState('No result');
 
 	useEffect(() => {
-		fetch('data/hello.json')
+		fetch('/api/sayhello')
 			.then(response => response.json())
 			.then(resultFromApi => setResult(resultFromApi.foo));
 	}, []);
 
 	return (
-		<div id="container">			
+		<div id="container">
 			<Router basename="/">
 				<menu>
 					<Link to="/">Home -></Link>
 					<br />
-					<Link to="/overview">Overview -></Link>
+					<Link to="/overview">Overview-></Link>
 				</menu>
 				<Switch>
 					<Route exact path='/'>

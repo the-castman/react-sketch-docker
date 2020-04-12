@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    container_name: web-client-nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - 4000:4000
+
+  proxy-server:
+    working_dir: /app
+    container_name: proxy-server
+    image: express-gateway:latest
+    volumes:
+      - './proxy_server:/app' # Copy all contents of ./proxy-server to container
+    entrypoint: ['node', 'server.js']
+    ports: 
+        - 3030:3030
