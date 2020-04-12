@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const currentPort = process.env.PORT || 3030;
+const apiRoutes = require('./routes');
 
-app.get('/api/sayhello', (req, res) => {
-    return res.json({ foo: 'bar' });
-});
+app.use('/api', apiRoutes);
 
 app.listen(currentPort);
 
